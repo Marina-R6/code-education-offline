@@ -1,3 +1,18 @@
-print("Le projet est en cours de construction.")
+from download import get_code_html
+from extract import extract_articles
+from pdf import generate_pdf
 
-print("Prochaine étape : ajouter le téléchargement des données LEGI.")
+def main():
+    print("Téléchargement...")
+    html = get_code_html()
+
+    print("Extraction...")
+    articles = extract_articles(html)
+
+    print("PDF...")
+    generate_pdf(articles)
+
+    print("Terminé -> Code_Education.pdf")
+
+if __name__ == "__main__":
+    main()
